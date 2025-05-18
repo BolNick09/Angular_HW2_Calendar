@@ -1,0 +1,21 @@
+<div class="calendar-container">
+  <h2>{{month}}</h2>
+  
+  <table class="calendar-table">
+    <thead>
+      <tr>
+        <th *ngFor="let day of weekdays">{{day}}</th>
+      </tr>      
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let week of weeks">
+        <td *ngFor="let day of week" 
+            [class.current-month]="isCurrentMonth(day)"
+            [class.first-day]="isFirstDay(day)">
+          {{day.getDate()}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
