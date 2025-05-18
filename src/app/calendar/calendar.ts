@@ -27,7 +27,7 @@ export class Calendar
     {
       const days: Date[] = [];
       for (let day = 0; day < 7; day++) 
-        {
+      {
         days.push(new Date(currentDate));
         currentDate.setDate(currentDate.getDate() + 1);
       }

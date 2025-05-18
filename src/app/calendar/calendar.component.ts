@@ -8,9 +8,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.css'
 })
-export class CalendarComponent
+export class CalendarComponent 
 {
   calendar: Calendar;
+  selectedDate: Date | null = null;
 
   constructor() 
   {
@@ -36,8 +37,19 @@ export class CalendarComponent
   {
     return this.calendar.isCurrentMonth(date);
   }
-  public isFirstDay(date: Date): boolean 
+
+  isFirstDay(date: Date): boolean 
   {
-    return date.getDate() === 1 && this.isCurrentMonth(date);
+    return this.calendar.isFirstDay(date);
+  }
+
+  selectDate(date: Date): void 
+  {
+    this.selectedDate = date;
+  }
+
+  isSelected(date: Date): boolean 
+  {
+    return this.selectedDate?.getTime() === date.getTime();
   }
 }

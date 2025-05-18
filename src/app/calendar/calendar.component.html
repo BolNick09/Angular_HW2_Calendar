@@ -5,14 +5,16 @@
     <thead>
       <tr>
         <th *ngFor="let day of weekdays">{{day}}</th>
-      </tr>      
+      </tr>
     </thead>
-
+    
     <tbody>
       <tr *ngFor="let week of weeks">
         <td *ngFor="let day of week" 
             [class.current-month]="isCurrentMonth(day)"
-            [class.first-day]="isFirstDay(day)">
+            [class.first-day]="isFirstDay(day)"
+            [class.selected]="isSelected(day)"
+            (click)="selectDate(day)">
           {{day.getDate()}}
         </td>
       </tr>
